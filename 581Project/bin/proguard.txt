@@ -1,6 +1,0 @@
-# view AndroidManifest.xml #generated:19
--keep class com.example.gesturesapp.MainActivity { <init>(...); }
-
-# view res/layout/activity_main.xml #generated:18
--keep class com.example.gesturesapp.PufDrawView { <init>(...); }
-
