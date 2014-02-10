@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +25,8 @@ import au.com.bytecode.opencsv.CSVWriter;
 public class PufDrawView extends View
 {
     private Paint redPaint;
+    private Paint greenPaint;
+    private Paint bluePaint;
     private TextView tv;
     private Point[] challenge;
     private ArrayList<Point> response;
@@ -46,25 +50,50 @@ public class PufDrawView extends View
         redPaint.setColor(Color.RED);
         redPaint.setStrokeWidth(15);
 
+        bluePaint = new Paint();
+        bluePaint.setAntiAlias(true);
+        bluePaint.setStyle(Paint.Style.STROKE);
+        bluePaint.setColor(Color.BLUE);
+        bluePaint.setStrokeWidth(10);
+
+        greenPaint = new Paint();
+        greenPaint.setAntiAlias(true);
+        greenPaint.setStyle(Paint.Style.STROKE);
+        greenPaint.setColor(Color.GREEN);
+        greenPaint.setStrokeWidth(5);
+
         response = new ArrayList<Point>();
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
-        Path challengePath = new Path();
-        for(int i = 0; i < challenge.length; i++)
+        if(challenge.length >= 4)
         {
-            if(i == 0)
+            Path challengeStart = new Path();
+            challengeStart.moveTo(challenge[0].x, challenge[0].y);
+            challengeStart.lineTo(challenge[1].x, challenge[1].y);
+
+            Path challengeMiddle = new Path();
+            challengeMiddle.moveTo(challenge[1].x, challenge[1].y);
+            challengeMiddle.lineTo(challenge[2].x, challenge[2].y);
+
+            Path challengePath = new Path();
+            for(int i = 2; i < challenge.length; i++)
             {
-                challengePath.moveTo(challenge[i].x, challenge[i].y);
+                if(i == 2)
+                {
+                    challengePath.moveTo(challenge[i].x, challenge[i].y);
+                }
+                else
+                {
+                    challengePath.lineTo(challenge[i].x, challenge[i].y);
+                }
             }
-            else
-            {
-                challengePath.lineTo(challenge[i].x, challenge[i].y);
-            }
+            canvas.drawPath(challengePath, redPaint);
+            canvas.drawPath(challengeMiddle, bluePaint);
+            canvas.drawPath(challengeStart, greenPaint);
         }
-        canvas.drawPath(challengePath, redPaint);
     }
 
     public void giveChallenge(Point[] challenge)
@@ -87,6 +116,11 @@ public class PufDrawView extends View
                 tv.setText( "No touch detected." );
                 //RECORD ACTION FINISH 
                 writeResponseCsv();
+
+                //TODO: rather hacky reference to mainactivity that could cause 
+                //problems if this code is ever re-used
+                ((MainActivity)getContext()).informOfResponse(); 
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 tv.setText( "Touch (x,y) = (" + me.getX() + ", " + me.getY() + ")" );
@@ -101,17 +135,34 @@ public class PufDrawView extends View
 
     public void writeResponseCsv()
     {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String testerName = prefs.getString("TesterName", "Ryan Scheel");
+        String deviceName = prefs.getString("DeviceName", "nexus-03");
+        String currentSeed = prefs.getString("CurrSeed", "1");
+
         File baseDir = new File(Environment.getExternalStorageDirectory(), "581Proj");
         if (!baseDir.exists())
         {
             baseDir.mkdirs();
         }
-        String fileName = getCurrentLocalTime();
+        String fileName = currentSeed + ": " + deviceName + " " + testerName + " " + getCurrentLocalTime() + ".csv";
         File f = new File(baseDir, fileName);
         try
         {
             f.createNewFile();
             CSVWriter csvWrite = new CSVWriter(new FileWriter(f));
+            String[] challengeHeaders = {"ChallengeX", "ChallengeY", "Tester Name", "Device Name"};
+            csvWrite.writeNext(challengeHeaders);
+            for( int i = 0; i < challenge.length; i++)
+            {
+                Point point = challenge[i];
+                String[] row = { Float.toString(point.x),
+                    Float.toString(point.y),
+                    testerName, 
+                    deviceName };
+                csvWrite.writeNext(row);
+            }
+
             String[] headers = { "X", "Y", "PRESSURE" };
             csvWrite.writeNext(headers);
             for( int i = 0; i < response.size(); i++)
