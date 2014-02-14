@@ -1,48 +1,84 @@
+import os
+from os.path import join, dirname, basename
+
 import csv
-import os.path
-from os import listdir
+
+CSV_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputCSVs/"
+GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/Strat1/"
+averagePressure = 0
 
 def main():
+    global averagePressure
 
-    # TODO: at some point make this not hard coded
-    csvFilePath = "/home/rascheel/git/PUFProject/OutputCSVs/nexus-03/Jake/"
+    # Walk through all the lower directories
+    for root, dirs, files in os.walk(CSV_OUTPUT_DIR):
+        # We only care about directories that have files
+        if(len(files) != 0):
+            files.sort()
 
-    fileList = listdir(csvFilePath)
-    fileList.sort()
-    #print fileList
+            # The directories with files have the .csv files
+            # Get the pressure data from them and store in list
+            pressureList = []
+            for fileName in files:
+                with open(join(root, fileName), "rb") as csvfile:
+                    respReader = csv.reader(csvfile)
+                    dataStarted = False
+                    for row in respReader:
+                        if(dataStarted):
+                            pressureList.append(float(row[2]))
+                        if(row[0] == "X" and row[1] == "Y" and row[2] == "PRESSURE"):
+                            dataStarted = True
 
-    pressureList = []
+            #Determine global variable average pressure for use in the arbiter
+            for pressure in pressureList:
+                averagePressure = averagePressure + pressure
+            averagePressure = averagePressure / len(pressureList)
 
-    for fileName in fileList:
-        with open(csvFilePath + fileName, "rb") as csvfile:
-            respReader = csv.reader(csvfile)
-            dataStarted = False
-            for row in respReader:
-                if(dataStarted):
-                    pressureList.append(float(row[2]))
-                if(row[0] == "X" and row[1] == "Y" and row[2] == "PRESSURE"):
-                    dataStarted = True
+            #Build the bit string and convert it to a bytearray() type for writing 
+            #to a binary file
+            count = 0
+            bitString = ""
+            for i in range(0, len(pressureList)-1):
+                if(pressureList[i] != pressureList[i+1]):
+                    bitString += str(arbiter(pressureList[i], pressureList[i+1]))
+                    count += 1
+            byteArr = convBitStrToByteArr(bitString)
 
-    count = 0
-    bitString = ""
-    for i in range(0, len(pressureList)-1):
-        if(pressureList[i] != pressureList[i+1]):
-            bitString += str(arbiter(pressureList[i], pressureList[i+1]))
-            count += 1
+            #Copy the directory structure of the OutputCSVs folder
+            deviceName = basename(dirname(root))
+            testerName = basename(root)
 
-    #print bitString
-    #print "PressureList Length: " + str(len(pressureList))
-    #print "Bit Count: " + str(count)
-    #print pressureList
+            #If the directory doesn't exist make it
+            att_path = os.path.join(GENERATED_OUTPUT_DIR, deviceName, testerName, "responseBinary")
+            if not os.path.exists(att_path):
+                os.makedirs(os.path.dirname(att_path))
 
-
-    # TODO: at some point make this not hard coded
-    outputFilePath = "/home/rascheel/git/PUFProject/OutputGenerated/Strat1/"
-    with open(outputFilePath + "resp1", "wb") as outputFile:
-        outputFile.write(bitString)
+            #Write binary file
+            with open(att_path, "wb") as outputFile:
+                outputFile.write(byteArr)
 
 def arbiter(val1, val2):
-    return 0 if val1 < val2 else 1 #ternary operation
+    global averagePressure
+    return 0 if val1 > averagePressure else 1 #ternary operation
+
+def convBitStrToByteArr(bitString):
+
+    byteToBuild = 0
+
+    #Chop up the bitstring into a list of 8-length strings
+    byteList = [bitString[i:i+8] for i in range(0, len(bitString), 8)]
+
+    byteArr = bytearray()
+    for byteStr in byteList:
+        for i in range(0,8):
+            if i < len(byteStr):
+                byteToBuild = byteToBuild | (int(byteStr[i]) << (7-i))
+        byteArr.append(byteToBuild)
+        byteToBuild = 0
+
+    return byteArr
+
+        
 
 if __name__ == '__main__':
     main()

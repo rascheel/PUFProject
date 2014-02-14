@@ -1,32 +1,10 @@
-#include "unif01.h"
-#include "ulcg.h"
-#include "smarsa.h"
-#include <stddef.h>
+#include "gdef.h"
+#include "swrite.h"
+#include "bbattery.h"
 
-double GetU01(void *param, void *state)
+int main (void)
 {
-
-}
-
-unsigned long GetBits(void *param, void *state)
-{
-
-}
-
-void Write(void *state)
-{
-
-}
-
-int main(void)
-{
-    unif01_Gen gen;
-
-    void* state; //bit string array
-    void* param; //index within the bit string that we are currently at
-
-    char *name;
-
-
+    swrite_Basic = FALSE;
+    bbattery_RabbitFile ("/home/rascheel/git/PUFProject/OutputGenerated/Strat1/resp1Bin", 3500);
     return 0;
 }
