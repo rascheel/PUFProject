@@ -8,7 +8,7 @@ GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/Strat1/"
 def main():
     byteArrList = []
     fileCount = 0
-    print "###### Binary Files #####"
+    print "##### Binary Files #####"
     for root, dirs, files in os.walk(GENERATED_OUTPUT_DIR):
         if(len(files) != 0):
             files.sort()
@@ -19,7 +19,7 @@ def main():
 
     # Calculate average hamming distance between runs of the same 
     # routes but different devices/users
-    print "\n###### Average hamming distance between runs of same routes, different devices/users #####"
+    print "\n##### Average hamming distance between runs of same routes, different devices/users #####"
     for i in range(0, len(byteArrList)):
         for j in range(i, len(byteArrList)):
             shortLen = len(byteArrList[i]) if len(byteArrList[i]) < len(byteArrList[j]) else len(byteArrList[j])
@@ -33,7 +33,7 @@ def main():
 
     # Calculate average hamming distance between runs of same device/users 
     # but different routes
-    print "\n###### Average hamming distance between runs of same devices/user, different routes #####"
+    print "\n##### Average hamming distance between runs of same devices/user, different routes #####"
     count = 0
     for byteArr in byteArrList:
         avgHamDist = 0
@@ -47,13 +47,6 @@ def main():
         print "%i = %i" % (count, avgHamDist)
         count += 1
 
-
-                    
-
-            
-
-
-
 def convBinFileToByteArr(binFile):
     byteArr = bytearray()
     #print binFile
@@ -66,10 +59,6 @@ def convBinFileToByteArr(binFile):
             byte = f.read(1)
 
     return byteArr
-
-    
-    
-
 
 if __name__ == '__main__':
     main()
