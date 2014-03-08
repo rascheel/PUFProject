@@ -1,0 +1,426 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          Starting Rabbit:   nb = 500
+          Version: TestU01 1.2.3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+smultin_MultinomialBitsOver test:
+-----------------------------------------------
+   N =  1,  n = 480,  r =  0,   s = 32,   L =   10,
+       Sparse =   TRUE
+
+       Number of bits = n = 480
+       Number of cells = 2^L =               1024
+       Expected number per cell =  1 /  2.1333333
+       EColl = n^2 / (2k) =        112.5
+       Hashing =  FALSE
+
+       Collision test
+       CollisionOver:   density = n / k =  1 /       2.13
+       Expected number of collisions = Mu =      85.50
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :       85.50
+Observed number of collisions         :      166
+p-value of test                       : 8.5e-15    *****
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :              710
+  j =  1                              :              197
+  j =  2                              :               84
+  j =  3                              :               21
+  j =  4                              :                8
+  j =  5                              :                4
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  1,  n =  7,  r =  0,  t = 2
+
+
+-----------------------------------------------
+Max of all bit distances              :    2.00
+p-value of test                       :    0.28
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  1,  n =  3,  r =  0,  t = 4
+
+
+-----------------------------------------------
+Max of all bit distances              :   0.000
+p-value of test                       :    0.18
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 384  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+svaria_AppearanceSpacings test:
+-----------------------------------------------
+   N =  1,   Q = 112,   K = 112,   r = 0,   s = 30,   L = 2
+
+   Sequences of n = (K + Q)L =          448 bits
+   Q =  112 initialization blocks
+   K =  112 blocks for the test
+   the blocks have L =  2 bits
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.12
+p-value of test                       :    0.55
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+scomp_LinearComp test:
+-----------------------------------------------
+   N =  1,  n = 480,  r =  0,    s = 32
+
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    2
+Chi2 statistic for size of jumps      :    1.26
+p-value of test                       :    0.53
+
+
+-----------------------------------------------
+Normal statistic for number of jumps  :   0.086
+p-value of test                       :    0.47
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+scomp_LempelZiv test:
+-----------------------------------------------
+   N =  1,  n = 256,  r =  0,   s =   32,   k =    8
+
+
+-----------------------------------------------
+Normal statistic                      :   -1.05
+p-value of test                       :    0.85
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 256  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sspectral_Fourier1 test:
+-----------------------------------------------
+   N =  1,  n = 256,  r =  0,   s =   32,   k =    8
+
+
+-----------------------------------------------
+Normal statistic                      :   -1.43
+p-value of test                       :    0.92
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 256  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sspectral_Fourier3 test:
+-----------------------------------------------
+   N =  7,  n = 32,  r =  0,   s =   32,   k =    5
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.21
+p-value of test                       :    0.45
+
+Kolmogorov-Smirnov- statistic = D-    :    0.11
+p-value of test                       :    0.76
+
+Anderson-Darling statistic = A2       :    0.44
+p-value of test                       :    0.80
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 15,  r =  0,   s = 32,   L = 32
+
+
+
+-----------------------------------------------
+Normal statistic                      :    0.73
+p-value of test                       :    0.23
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n =  7,  r =  0,   s = 32,   L = 64
+
+
+
+-----------------------------------------------
+Normal statistic                      :    0.59
+p-value of test                       :    0.28
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n =  3,  r =  0,   s = 32,   L = 128
+
+
+
+-----------------------------------------------
+Normal statistic                      :    1.55
+p-value of test                       :    0.06
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 384  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 417,  r =  0,   s = 32,   d = 1
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.88
+p-value of test                       :    0.81
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 418,  r =  0,   s = 32,   d = 2
+
+
+-----------------------------------------------
+Normal statistic                      :    4.12
+p-value of test                       :  1.9e-5    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+
+
+sstring_Run test:
+-----------------------------------------------
+   N =  1,  n = 96,  r =  0,   s =   32
+
+
+-----------------------------------------------
+Total number of 1 runs:  100
+
+Number of degrees of freedom          :    6
+Chi2 statistic for number of runs     :   38.41
+p-value of test                       :  9.3e-7    *****
+
+
+-----------------------------------------------
+Total number of bits:  416
+
+Normal statistic for number of bits   :    1.15
+p-value of test                       :    0.12
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 416  bits have been read.
+
+
+
+
+
+========= Summary results of Rabbit =========
+
+ Version:          TestU01 1.2.3
+ File:             /home/rascheel/git/PUFProject/OutputGenerated/Strat2/nexus-08/Jake/responseBinary
+ Number of bits:   480
+ Number of statistics:  16
+ Total CPU time:   00:00:00.01
+ The following tests gave p-values outside [0.001, 0.9990]:
+ (eps  means a value < 1.0e-300):
+ (eps1 means a value < 1.0e-15):
+
+       Test                          p-value
+ ----------------------------------------------
+  1  MultinomialBitsOver            8.5e-15
+ 19  AutoCor                         1.9e-5
+ 20  Run of bits                     9.3e-7
+ ----------------------------------------------
+ All other tests were passed
+
+
+

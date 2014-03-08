@@ -1,0 +1,434 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          Starting Rabbit:   nb = 500
+          Version: TestU01 1.2.3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+smultin_MultinomialBitsOver test:
+-----------------------------------------------
+   N =  1,  n = 480,  r =  0,   s = 32,   L =   10,
+       Sparse =   TRUE
+
+       Number of bits = n = 480
+       Number of cells = 2^L =               1024
+       Expected number per cell =  1 /  2.1333333
+       EColl = n^2 / (2k) =        112.5
+       Hashing =  FALSE
+
+       Collision test
+       CollisionOver:   density = n / k =  1 /       2.13
+       Expected number of collisions = Mu =      85.50
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :       85.50
+Observed number of collisions         :      360
+p-value of test                       :7.8e-108    *****
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :              904
+  j =  1                              :               71
+  j =  2                              :               25
+  j =  3                              :                7
+  j =  4                              :                2
+  j =  5                              :                1
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.01
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  1,  n =  7,  r =  0,  t = 2
+
+
+-----------------------------------------------
+Max of all bit distances              :    7.00
+p-value of test                       :  3.2e-4    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  1,  n =  3,  r =  0,  t = 4
+
+
+-----------------------------------------------
+Max of all bit distances              :    1.00
+p-value of test                       :    0.01
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 384  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+svaria_AppearanceSpacings test:
+-----------------------------------------------
+   N =  1,   Q = 112,   K = 112,   r = 0,   s = 30,   L = 2
+
+   Sequences of n = (K + Q)L =          448 bits
+   Q =  112 initialization blocks
+   K =  112 blocks for the test
+   the blocks have L =  2 bits
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -7.97
+p-value of test                       : 1 - eps1    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+scomp_LinearComp test:
+-----------------------------------------------
+   N =  1,  n = 480,  r =  0,    s = 32
+
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    2
+Chi2 statistic for size of jumps      :    6.56
+p-value of test                       :    0.04
+
+
+-----------------------------------------------
+Normal statistic for number of jumps  :   -2.63
+p-value of test                       :    0.9957
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+scomp_LempelZiv test:
+-----------------------------------------------
+   N =  1,  n = 256,  r =  0,   s =   32,   k =    8
+
+
+-----------------------------------------------
+Normal statistic                      :  -17.33
+p-value of test                       : 1 - eps1    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 256  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sspectral_Fourier1 test:
+-----------------------------------------------
+   N =  1,  n = 256,  r =  0,   s =   32,   k =    8
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.63
+p-value of test                       :    0.73
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 256  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sspectral_Fourier3 test:
+-----------------------------------------------
+   N =  7,  n = 32,  r =  0,   s =   32,   k =    5
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.45
+p-value of test                       :    0.03
+
+Kolmogorov-Smirnov- statistic = D-    :    0.12
+p-value of test                       :    0.71
+
+Anderson-Darling statistic = A2       :    4.81
+p-value of test                       :  3.8e-3
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 15,  r =  0,   s = 32,   L = 32
+
+
+
+-----------------------------------------------
+Normal statistic                      :   48.47
+p-value of test                       :   eps      *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.01
+
+Generator state:
+ 480  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n =  7,  r =  0,   s = 32,   L = 64
+
+
+
+-----------------------------------------------
+Normal statistic                      :   57.69
+p-value of test                       :   eps      *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n =  3,  r =  0,   s = 32,   L = 128
+
+
+
+-----------------------------------------------
+Normal statistic                      :   53.43
+p-value of test                       :   eps      *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 384  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 417,  r =  0,   s = 32,   d = 1
+
+
+-----------------------------------------------
+Normal statistic                      :  -15.98
+p-value of test                       : 1 - eps1    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 418,  r =  0,   s = 32,   d = 2
+
+
+-----------------------------------------------
+Normal statistic                      :  -14.32
+p-value of test                       : 1 - eps1    *****
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 448  bits have been read.
+
+
+
+
+***********************************************************
+HOST = Ubuntu-laptop, Linux
+
+ufile_CreateReadBin:   /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+
+
+sstring_Run test:
+-----------------------------------------------
+   N =  1,  n = 96,  r =  0,   s =   32
+
+
+-----------------------------------------------
+Total number of 1 runs:  96
+
+Number of degrees of freedom          :    6
+Chi2 statistic for number of runs     :  475.69
+p-value of test                       :   eps      *****
+
+
+-----------------------------------------------
+Total number of bits:  1856
+
+Normal statistic for number of bits   :   53.12
+p-value of test                       :   eps      *****
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.00
+
+Generator state:
+ 1856  bits have been read.
+
+
+
+
+
+========= Summary results of Rabbit =========
+
+ Version:          TestU01 1.2.3
+ File:             /home/rascheel/git/PUFProject/OutputGenerated/Strat1/nexus-09/Ryan/responseBinary
+ Number of bits:   480
+ Number of statistics:  16
+ Total CPU time:   00:00:00.02
+ The following tests gave p-values outside [0.001, 0.9990]:
+ (eps  means a value < 1.0e-300):
+ (eps1 means a value < 1.0e-15):
+
+       Test                          p-value
+ ----------------------------------------------
+  1  MultinomialBitsOver           7.8e-108
+  2  ClosePairsBitMatch, t = 2       3.2e-4
+  4  AppearanceSpacings             1 - eps1
+  6  LempelZiv                      1 - eps1
+ 12  HammingCorr, L = 32              eps  
+ 13  HammingCorr, L = 64              eps  
+ 14  HammingCorr, L = 128             eps  
+ 18  AutoCor                        1 - eps1
+ 19  AutoCor                        1 - eps1
+ 20  Run of bits                      eps  
+ 20  Run of bits                      eps  
+ ----------------------------------------------
+ All other tests were passed
+
+
+

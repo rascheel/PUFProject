@@ -1,15 +1,23 @@
 import os
 import binascii
-from hamming import hammingDistance
+from util import hammingDistance
 from os.path import join, dirname, basename
 
-GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/Strat1/"
+GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/"
 
 def main():
+    testHamming("Strat1")
+    testHamming("Strat2")
+    testHamming("Strat3")
+    testHamming("Strat4")
+
+def testHamming(strategy="Strat1"):
+    print "-------------------------------------------------------------------"
+    print "Testing Hamming distances for strategy: %s" % strategy
     byteArrList = []
     fileCount = 0
     print "##### Binary Files #####"
-    for root, dirs, files in os.walk(GENERATED_OUTPUT_DIR):
+    for root, dirs, files in os.walk(GENERATED_OUTPUT_DIR + strategy + "/"):
         if(len(files) != 0):
             files.sort()
             for filename in files:
@@ -46,6 +54,7 @@ def main():
         avgHamDist /= comparisons
         print "%i = %i" % (count, avgHamDist)
         count += 1
+    print "\n"
 
 def convBinFileToByteArr(binFile):
     byteArr = bytearray()

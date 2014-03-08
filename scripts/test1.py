@@ -6,7 +6,7 @@ from os.path import join, dirname, basename
 from ctypes import *
 
 GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/"
-RESULTS_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputResults/"
+RESULTS_OUTPUT_DIR = "/home/rascheel/git/PUFProject/Results/PRGTests"
 LIBRARY_LOCATION = "/usr/local/lib/libtestu01.so"
 
 def main():
