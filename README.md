@@ -23,6 +23,7 @@ of each individual path.
 
 # Strategy Breakdown
 These are the strategies used to generate the random 1's or 0's.
+
 1. Simple Average
   * This is the simplest strategy, averages all the pressure values and then outputs a 0 or 1 depending on if it is above or below the average.
 2. Moving average n=5
