@@ -1,4 +1,5 @@
 import binascii
+from math import sqrt, atan, sin, cos, fabs
 from pylab import *
 
 def hammingDistance(byteArr1, byteArr2):
@@ -38,3 +39,25 @@ def cumulativeMovingAverage(inputList):
             cumulAvg = (cumulativeMovAvg[i-1]*float(i-1) + float(inputList[i]))/float(i)
             cumulativeMovAvg.append(cumulAvg)
     return cumulativeMovAvg
+
+def distBetweenPts(pt1=(0,0), pt2=(0,0)):
+    return sqrt(pow(pt1[0]-pt2[0], 2) + pow(pt1[1]-pt2[1], 2))
+
+def calcNextPt(lastPt=(0,0), targetPt=(0,0), increment=0):
+    if(lastPt[1] > targetPt[1]):
+        increment = -increment
+
+    deltaX = 0
+    deltaY = 0
+    if(lastPt[1] == targetPt[1]): #tan(X/0) is NaN
+        if(lastPt[0] > targetPt[0]):
+            deltaX = -increment
+        else:
+            deltax = increment
+    else:
+        angle = atan((lastPt[0]-targetPt[0])/(lastPt[1]-targetPt[1]))
+        deltaX = increment * sin(angle)
+        deltaY = increment * cos(angle)
+
+    nextPt = (lastPt[0]+deltaX, lastPt[1]+deltaY)
+    return nextPt

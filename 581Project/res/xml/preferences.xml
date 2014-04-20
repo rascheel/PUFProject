@@ -25,6 +25,11 @@
  	        android:numeric="integer"
             android:selectable="false"
  	        android:key="CurrSeed" />
+        <CheckBoxPreference
+            android:title="Auto increment seed"
+            android:summary="When checked the seed will auto increment after tracing a path."
+            android:defaultValue="true"
+            android:key="AutoIncSeed" />
 	</PreferenceCategory>
 
 </PreferenceScreen>

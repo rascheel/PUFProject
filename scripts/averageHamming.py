@@ -10,6 +10,7 @@ def main():
     testHamming("Strat2")
     testHamming("Strat3")
     testHamming("Strat4")
+    #testHamming("ConsistencyStrat2")
 
 def testHamming(strategy="Strat1"):
     print "-------------------------------------------------------------------"

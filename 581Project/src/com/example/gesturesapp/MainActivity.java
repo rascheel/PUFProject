@@ -49,10 +49,13 @@ public class MainActivity extends Activity
 
     public void informOfResponse()
     {
-        Editor prefEditor = prefs.edit();
-        prefEditor.putString("CurrSeed", Long.toString(currSeed + 1));
-        prefEditor.commit();
-        listener.onSharedPreferenceChanged(prefs, "CurrSeed");
+        if (prefs.getBoolean("AutoIncSeed", true))
+        {
+            Editor prefEditor = prefs.edit();
+            prefEditor.putString("CurrSeed", Long.toString(currSeed + 1));
+            prefEditor.commit();
+            listener.onSharedPreferenceChanged(prefs, "CurrSeed");
+        }
     }
 
     @Override
@@ -84,11 +87,31 @@ public class MainActivity extends Activity
 
     private ArrayList<Point> generateChallenge()
     {
+        if(currSeed >= 2000)
+        {
+            return challGenMethod3();
+        }
+        else if(currSeed >= 1000)
+        {
+            return challGenMethod2();
+        }
+        else
+        {
+            return challGenMethod1();
+        }
+    }
+
+    /*
+     * This was my first attempt at generating paths
+     */
+    private ArrayList<Point> challGenMethod1()
+    {
         ArrayList<Point> challenge = new ArrayList<Point>();
         challenge.add(randPntInBnds());
         challenge.add(randPntInBnds());
         challenge.add(randPntInBnds());
         challenge.add(randPntInBnds());
+        int rejectionPoint = 50;
 
         // ensure that none of the points are too close to eachother
         boolean badPath = false;
@@ -98,8 +121,87 @@ public class MainActivity extends Activity
             for (int j = i + 1; j < challenge.size() && !badPath; j++)
             {
                 Point point2 = challenge.get(j);
-                if (Math.abs((point1.x - point2.x)) < 50
-                        && Math.abs((point1.y - point2.y)) < 50)
+                if (Math.abs((point1.x - point2.x)) < rejectionPoint
+                        && Math.abs((point1.y - point2.y)) < rejectionPoint)
+                {
+                    badPath = true;
+                }
+            }
+        }
+
+        if (badPath)
+        {
+            return generateChallenge(); // TODO: probably the laziest way to do
+                                        // this.
+        }
+        else
+        {
+            return challenge;
+        }
+    }
+
+    /*
+     * This method generates longer paths
+     */
+    private ArrayList<Point> challGenMethod2()
+    {
+        ArrayList<Point> challenge = new ArrayList<Point>();
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        int rejectionPoint = 100;
+
+        // ensure that none of the points are too close to eachother
+        boolean badPath = false;
+        for (int i = 0; i < challenge.size() && !badPath; i++)
+        {
+            Point point1 = challenge.get(i);
+            for (int j = i + 1; j < challenge.size() && !badPath; j++)
+            {
+                Point point2 = challenge.get(j);
+                if (Math.abs((point1.x - point2.x)) < rejectionPoint
+                        && Math.abs((point1.y - point2.y)) < rejectionPoint)
+                {
+                    badPath = true;
+                }
+            }
+        }
+
+        if (badPath)
+        {
+            return generateChallenge(); // TODO: probably the laziest way to do
+                                        // this.
+        }
+        else
+        {
+            return challenge;
+        }
+    }
+
+    /*
+     * This method generates paths with only a single line
+     */
+    private ArrayList<Point> challGenMethod3()
+    {
+        ArrayList<Point> challenge = new ArrayList<Point>();
+        challenge.add(randPntInBnds());
+        challenge.add(randPntInBnds());
+        int rejectionPoint = 400;
+
+        // ensure that none of the points are too close to eachother
+        boolean badPath = false;
+        for (int i = 0; i < challenge.size() && !badPath; i++)
+        {
+            Point point1 = challenge.get(i);
+            for (int j = i + 1; j < challenge.size() && !badPath; j++)
+            {
+                Point point2 = challenge.get(j);
+                if (Math.abs((point1.x - point2.x)) < rejectionPoint
+                        && Math.abs((point1.y - point2.y)) < rejectionPoint)
                 {
                     badPath = true;
                 }

@@ -94,6 +94,14 @@ public class PufDrawView extends View
             canvas.drawPath(challengeMiddle, bluePaint);
             canvas.drawPath(challengeStart, greenPaint);
         }
+        else if(challenge.length == 2)
+        {
+            Path challengeLine = new Path();
+            challengeLine.moveTo(challenge[0].x, challenge[0].y);
+            challengeLine.lineTo(challenge[1].x, challenge[1].y);
+            canvas.drawPath(challengeLine, redPaint);
+            canvas.drawPoint(challenge[0].x, challenge[0].y, greenPaint);
+        }
     }
 
     public void giveChallenge(Point[] challenge)
