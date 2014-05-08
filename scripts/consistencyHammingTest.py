@@ -8,7 +8,8 @@ GENERATED_OUTPUT_DIR = "/home/rascheel/git/PUFProject/OutputGenerated/"
 def main():
     #testConsistencyHamming("ConsistencyStrat2")
     #testConsistencyHamming("NormalizedStrat2")
-    testConsistencyHamming("NormalizedStrat3")
+    #testConsistencyHamming("NormalizedStrat3")
+    testConsistencyHamming("NormalizedStrat4")
 
 
 def testConsistencyHamming(strategy="ConsistencyStrat1"):
