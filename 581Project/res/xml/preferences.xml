@@ -5,12 +5,12 @@
 	    <EditTextPreference
 	        android:title="Tester Name"
 	        android:summary="Name of the person generating the challenges (you)"
- 	        android:defaultValue="Ryan Scheel" 
+ 	        android:defaultValue="Default" 
  	        android:key="TesterName" />
 	    <EditTextPreference
 	        android:title="Device Name"
 	        android:summary="Name of the Nexus device (written on back)"
- 	        android:defaultValue="nexus-03" 
+ 	        android:defaultValue="nexus-default" 
  	        android:key="DeviceName" />
 	    <EditTextPreference
 	        android:title="Initial RNG Seed"

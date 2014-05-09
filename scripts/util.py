@@ -272,7 +272,7 @@ def genMeanList(pressDistrib=[], deviations=0.0):
         retList.append(mean+(deviations*stdDev))
     return retList
 
-def genGraph(xArray=[], yArrays=[], yLabels=[], xLabel="", yLabel="", graphTitle=""):
+def genGraph(xArray=[], yArrays=[], yLabels=[], xLabel="", yLabel="", graphTitle="", savePath="."):
 
     fig = figure()
     title(graphTitle)
@@ -287,7 +287,11 @@ def genGraph(xArray=[], yArrays=[], yLabels=[], xLabel="", yLabel="", graphTitle
         plot(X,Y, linewidth=4, label=yLabels[i])
 
     legend(loc='upper right')
-    att_path = os.path.join(".", graphTitle + ".png")
-    #savefig(att_path)
-    show()
+
+    att_path = os.path.join(savePath)
+    if not os.path.exists(att_path):
+        os.makedirs(att_path)
+    att_path = os.path.join(att_path, graphTitle + ".png")
+    savefig(att_path)
+    #show()
 
